@@ -1,0 +1,4 @@
+G:\ПОЭС_ЛРы\lab1!\lab1!\bin\Debug\lab1!.exe
+G:\ПОЭС_ЛРы\lab1!\lab1!\bin\Debug\lab1!.pdb
+G:\ПОЭС_ЛРы\lab1!\lab1!\obj\x86\Debug\lab1!.exe
+G:\ПОЭС_ЛРы\lab1!\lab1!\obj\x86\Debug\lab1!.pdb
