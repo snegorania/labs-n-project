@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
-using System.Windows.Forms;
+
 
 
 namespace lab2
@@ -10,8 +10,20 @@ namespace lab2
     {
         static void Main(string[] args)
         {
-            int a = (int)'A';
-             MessageBox.Show((string)a);
+            string stopWord = "kill";
+            string input = "";
+            while (input != stopWord)
+            {
+                input = Console.ReadLine();
+                try
+                {
+                    Class1.zagz(input);
+                }
+                catch (exeptionZagz)
+                {
+                    Console.WriteLine("Incorrect name. Try again...");
+                }
+            }
         }
     }
 }

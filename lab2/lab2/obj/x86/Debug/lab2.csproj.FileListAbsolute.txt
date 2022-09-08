@@ -2,3 +2,9 @@ G:\ПОЭС_ЛРы\lab2\lab2\bin\Debug\lab2.exe
 G:\ПОЭС_ЛРы\lab2\lab2\bin\Debug\lab2.pdb
 G:\ПОЭС_ЛРы\lab2\lab2\obj\x86\Debug\lab2.exe
 G:\ПОЭС_ЛРы\lab2\lab2\obj\x86\Debug\lab2.pdb
+D:\labs-n-project\lab2\lab2\bin\Debug\lab2.exe
+D:\labs-n-project\lab2\lab2\bin\Debug\lab2.pdb
+D:\labs-n-project\lab2\lab2\obj\x86\Debug\lab2.csprojAssemblyReference.cache
+D:\labs-n-project\lab2\lab2\obj\x86\Debug\lab2.csproj.CoreCompileInputs.cache
+D:\labs-n-project\lab2\lab2\obj\x86\Debug\lab2.exe
+D:\labs-n-project\lab2\lab2\obj\x86\Debug\lab2.pdb
