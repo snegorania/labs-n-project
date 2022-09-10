@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Text;
 
 
 
@@ -10,18 +8,52 @@ namespace lab2
     {
         static void Main(string[] args)
         {
-            string stopWord = "kill";
             string input = "";
-            while (input != stopWord)
+
+            Class1.HelpUser();
+
+            while (input != "kill")
             {
+                Console.WriteLine("Command:");
                 input = Console.ReadLine();
-                try
+
+                if (input == "Help")
                 {
-                    Class1.zagz(input);
+                    Class1.HelpUser();
                 }
-                catch (exeptionZagz)
+
+                if (input == "Add")
                 {
-                    Console.WriteLine("Incorrect name. Try again...");
+                    Console.WriteLine("Name: ");
+                    input = Console.ReadLine();
+
+                    try
+                    {
+                        Class1.Zagz(input);
+                    }
+                    catch (ExeptionZagz)
+                    {
+                        Console.WriteLine("Incorrect name");
+                    }
+                }
+
+                if (input == "All")
+                {
+                    Class1.ListOfNames();
+                }
+
+                if (input == "Delete")
+                {
+                    Console.WriteLine("Index: ");
+                    input = Console.ReadLine();
+                    try
+                    {
+                        Class1.DeleteName(int.Parse(input));
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        Console.WriteLine("Incorrect index");
+                    }
                 }
             }
         }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace lab2
 {
-    class exeptionZagz : Exception
+    class ExeptionZagz : Exception
     {
-        public exeptionZagz (string message) : base(message) { }
+        public ExeptionZagz (string message) : base(message) { }
     }
 }
