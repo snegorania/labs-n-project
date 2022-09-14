@@ -15,3 +15,4 @@ D:\ПОЭС\labs-n-project-lab2\lab2\lab2\obj\x86\Debug\lab2.csprojAssemblyRefer
 D:\ПОЭС\labs-n-project-lab2\lab2\lab2\obj\x86\Debug\lab2.csproj.CoreCompileInputs.cache
 D:\ПОЭС\labs-n-project-lab2\lab2\lab2\obj\x86\Debug\lab2.exe
 D:\ПОЭС\labs-n-project-lab2\lab2\lab2\obj\x86\Debug\lab2.pdb
+D:\labs-n-project\lab2\lab2\bin\Debug\lab2.exe.config

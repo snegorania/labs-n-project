@@ -9,12 +9,13 @@ namespace lab2
         static void Main(string[] args)
         {
             string input = "";
+            int num;
 
             Class1.HelpUser();
 
             while (input != "kill")
             {
-                Console.WriteLine("Command:");
+                Console.Write("Command: ");
                 input = Console.ReadLine();
 
                 if (input == "Help")
@@ -24,16 +25,21 @@ namespace lab2
 
                 if (input == "Add")
                 {
-                    Console.WriteLine("Name: ");
-                    input = Console.ReadLine();
+                    Console.Write("Quantity: ");
+                    num = TCN();
 
-                    try
+                    for (int i = 0; i < num; i++)
                     {
-                        Class1.Zagz(input);
-                    }
-                    catch (ExeptionZagz)
-                    {
-                        Console.WriteLine("Incorrect name");
+                        Console.Write("Name: ");
+                        input = Console.ReadLine();
+                        try
+                        {
+                            Class1.Zagz(input);
+                        }
+                        catch (ExeptionZagz)
+                        {
+                            Console.WriteLine("Incorrect name");
+                        }
                     }
                 }
 
@@ -44,18 +50,61 @@ namespace lab2
 
                 if (input == "Delete")
                 {
-                    Console.WriteLine("Index: ");
-                    input = Console.ReadLine();
+                    int index;
+                    Console.Write("Index: ");
+                    index = TCN() - 1;
                     try
                     {
-                        Class1.DeleteName(int.Parse(input));
+                        if (index < 0)
+                        {
+                            continue;
+                        }
+                        Class1.DeleteName(index);
                     }
                     catch (ArgumentOutOfRangeException)
                     {
                         Console.WriteLine("Incorrect index");
                     }
                 }
+
+                if (input == "Statistic")
+                {
+                    Class1.GiveStatisticNames();
+                }
+
+                if (input == "Rename")
+                {
+                    Console.Write("Index: ");
+                    int index = TCN() - 1;
+                    Console.Write("Name: ");
+                    input = Console.ReadLine();
+                    try
+                    {
+                        if(index < 0) {
+                            continue;
+                        }
+                        Class1.ChangeName(index, input);
+                    }
+                    catch (ExeptionZagz)
+                    {
+                        Console.WriteLine("Incorrect name");
+                    }
+                }
             }
+        }
+
+        public static int TCN()
+        {
+            int num = 0;
+            try
+            {
+                num = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Incorrect format");
+            }
+            return num;
         }
     }
 }
