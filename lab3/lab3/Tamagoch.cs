@@ -7,22 +7,15 @@ namespace lab3
     class Tamagoch
     {
         private static string[,] state = { { "helth", "#####" }, { "food", "#####" }, { "sleep", "#####" }, { "mood", "#####" }, { "xp", "" } };
-        private static string[] locations = { "hospital", "work", "home", "street", "park", "shopping" };
+        private static string[] locations = { "hospital", "work", "kitchen", "bedroom", "park", "shopping" };
         private static string[][] statistic = new string[7][];
 
-        private static int level = 0;
+        private static int level = 1;
+        private static int xp = 0;
 
         public static int Level {
                 get { return level; }
                 set { level = value; }
-        }
-
-        private static string location = "home";
-
-        public static int currentLocation
-        {
-            get { return currentLocation; }
-            set { currentLocation = value; }
         }
 
         public static TamagochEventArgs data = new TamagochEventArgs();
@@ -45,6 +38,8 @@ namespace lab3
             xp
         }
 
+        private static locationType location = locationType.bedroom;
+
         //public delegate void tamagochHendler();
 
         public static event EventHandler<TamagochEventArgs> Dead;
@@ -58,31 +53,63 @@ namespace lab3
 
         public static void Hill()
         {
-            state[0, 1] = state[1, 1].PadRight(state[1, 1].Length + 1, '#');
+            location = locationType.hospital;
+            ChangeString((int)State.helth, 3);
+            ChangeString((int)State.mood, (int)location);
         }
 
         public static void Feed()
         {
-            state[1, 1] = state[1, 1].PadRight(state[1, 1].Length + 1, '#');
+            location = locationType.kitchen;
+            ChangeString((int)State.food, 3);
+            ChangeString((int)State.sleep, -1);
+            ChangeString((int)State.mood, (int)location);
         }
-
-        public static void ChangeLocation()
-        {
-
-        } 
 
         public static void Sleep()
         {
-            state[2, 1] = state[2, 1].PadRight(state[2,1].Length + 1, '#');
+            location = locationType.bedroom;
+            ChangeString((int)State.food, -1);
+            ChangeString((int)State.sleep, 3);
+            ChangeString((int)State.mood, (int)location);
         }
 
         public static void Work()
         {
-            state[1, 1] = state[1, 1].Substring(0, state[1, 1].Length - 1);
-            state[2, 1] = state[2, 1].Substring(0, state[2, 1].Length - 1);
+            location = locationType.work;
+            ChangeString((int)State.food, -1);
+            ChangeString((int)State.sleep, -1);
+            ChangeString((int)State.mood, (int)location);
+            ChangeXp();
         }
 
-        public static void SendEvent()
+        public static void ChangeString(int index, int n)
+        {
+            int length = state[index, 1].Length + n;
+            if (length < 0) length = 0;
+            if (length > 10) length = 10;
+            SendEvent(index, length);
+            if (n >= 0)
+            {
+                state[index, 1] = state[index, 1].PadRight(length, '#');
+            } else
+            {
+                state[index, 1] = state[index, 1].Substring(0, length);
+            }
+        }
+
+        public static void ChangeXp()
+        {
+            if(++xp > level)
+            {
+                xp = 0;
+                level++;
+            }
+            int n = xp * 10 / level;
+            state[(int)State.xp, 1] = "".PadRight(n, '#');
+        }
+
+        public static void SendEvent(int i, int l)
         {
             Dead += EventListener;
             Hungry += EventListener;
@@ -92,49 +119,49 @@ namespace lab3
             OverFat += EventListener;
             OverHilled += EventListener;
             OverHappy += EventListener;
-            if(state[0,1].Length == 5)
+            if (i == (int)State.helth && l <= 0)
             {
                 data.isBad = true;
                 data.massage = "deth";
                 Dead?.Invoke(data, data);
             }
-            if (state[1, 1].Length == 5)
+            if (i == (int)State.food && l <= 0)
             {
                 data.isBad = true;
                 data.massage = "hunger";
                 Hungry?.Invoke(data, data);
             }
-            if (state[2, 1].Length == 5)
+            if (i == (int)State.sleep && l <= 0)
             {
                 data.isBad = true;
                 data.massage = "tiered";
                 Exhausted?.Invoke(data, data);
             }
-            if (state[3, 1].Length == 5)
+            if (i == (int)State.mood && l <= 0)
             {
                 data.isBad = true;
                 data.massage = "sad";
                 Depression?.Invoke(data, data);
             }
-            if (state[0, 1].Length == 5)
+            if (i == (int)State.helth && l > 9)
             {
                 data.isBad = false;
                 data.massage = "hilled to kill";
                 OverHilled?.Invoke(data, data);
             }
-            if (state[1, 1].Length == 5)
+            if (i == (int)State.food && l > 9)
             {
                 data.isBad = true;
                 data.massage = "too fat to go";
                 OverFat?.Invoke(data, data);
             }
-            if (state[2, 1].Length == 5)
+            if (i == (int)State.sleep && l > 9)
             {
                 data.isBad = false;
                 data.massage = "run so fast";
                 OverEnergetic?.Invoke(data, data);
             }
-            if (state[3, 1].Length == 5)
+            if (i == (int)State.mood && l > 9)
             {
                 data.isBad = false;
                 data.massage = "suicied from happiness";
