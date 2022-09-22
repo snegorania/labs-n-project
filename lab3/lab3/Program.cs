@@ -6,9 +6,12 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            Tamagoch.SendEvent();
+            string input = Console.ReadLine();
+            while (input != "exit")
+            {
+                if()
+                input = Console.ReadLine();
+            }
         }
     }
 }

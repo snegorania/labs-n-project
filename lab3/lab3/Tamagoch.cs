@@ -7,11 +7,13 @@ namespace lab3
     class Tamagoch
     {
         private static string[,] state = { { "helth", "#####" }, { "food", "#####" }, { "sleep", "#####" }, { "mood", "#####" }, { "xp", "" } };
-        private static string[] locations = { "hospital", "work", "kitchen", "bedroom", "park", "shopping" };
+        private static string[] buf = new string[20];
         private static string[][] statistic = new string[7][];
 
         private static int level = 1;
         private static int xp = 0;
+        private static int count = 0;
+        private static int dayNum = 0;
 
         public static int Level {
                 get { return level; }
@@ -56,6 +58,7 @@ namespace lab3
             location = locationType.hospital;
             ChangeString((int)State.helth, 3);
             ChangeString((int)State.mood, (int)location);
+            addAction("Hill");
         }
 
         public static void Feed()
@@ -64,6 +67,7 @@ namespace lab3
             ChangeString((int)State.food, 3);
             ChangeString((int)State.sleep, -1);
             ChangeString((int)State.mood, (int)location);
+            addAction("Feed");
         }
 
         public static void Sleep()
@@ -72,6 +76,7 @@ namespace lab3
             ChangeString((int)State.food, -1);
             ChangeString((int)State.sleep, 3);
             ChangeString((int)State.mood, (int)location);
+            addAction("Sleep");
         }
 
         public static void Work()
@@ -81,6 +86,7 @@ namespace lab3
             ChangeString((int)State.sleep, -1);
             ChangeString((int)State.mood, (int)location);
             ChangeXp();
+            addAction("Work");
         }
 
         public static void ChangeString(int index, int n)
@@ -107,6 +113,26 @@ namespace lab3
             }
             int n = xp * 10 / level;
             state[(int)State.xp, 1] = "".PadRight(n, '#');
+        }
+
+        public static void addAction(string s)
+        {
+            buf[count] = s;
+            count++;
+            if (s == "Sleep")
+            {
+                statistic[dayNum] = new string[count];
+                for(int i = 0; i < count; i++)
+                {
+                    statistic[dayNum][i] = buf[i]; 
+                }
+                count = 0;
+                dayNum++;
+                if (dayNum > 6)
+                {
+                    dayNum = 0;
+                }
+            }
         }
 
         public static void SendEvent(int i, int l)
@@ -173,7 +199,7 @@ namespace lab3
             Console.WriteLine(e.massage);
             if (e.isBad)
             {
-                Console.WriteLine("Bad");
+                ChangeString((int)State.helth, -1);
             }
         }
         
