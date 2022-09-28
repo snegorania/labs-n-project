@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lab3
+﻿namespace lab3
 {
     class TamagochEventArgs : EventArgs
     {

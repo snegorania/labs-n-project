@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace lab3
 {
@@ -9,16 +7,11 @@ namespace lab3
         private static string[,] state = { { "helth", "#####" }, { "food", "#####" }, { "sleep", "#####" }, { "mood", "#####" }, { "xp", "" } };
         private static string[] buf = new string[20];
         private static string[][] statistic = new string[7][];
-
-        private static int level = 1;
         private static int xp = 0;
         private static int count = 0;
         private static int dayNum = 0;
 
-        public static int Level {
-                get { return level; }
-                set { level = value; }
-        }
+        private static int Level { get; set; } = 1;
 
         public static TamagochEventArgs data = new TamagochEventArgs();
         enum locationType
@@ -106,12 +99,12 @@ namespace lab3
 
         public static void ChangeXp()
         {
-            if(++xp > level)
+            if(++xp > Level)
             {
                 xp = 0;
-                level++;
+                Level++;
             }
-            int n = xp * 10 / level;
+            int n = xp * 10 / Level;
             state[(int)State.xp, 1] = "".PadRight(n, '#');
         }
 
@@ -132,6 +125,14 @@ namespace lab3
                 {
                     dayNum = 0;
                 }
+            }
+        }
+
+        public static void ShowStatus()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(state[i, 0] + " " + state[i, 1]);
             }
         }
 
