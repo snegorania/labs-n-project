@@ -24,6 +24,8 @@ namespace lab3
             shopping = 2
         }
 
+        public static string gg = "";
+
         enum State
         {
             helth,
@@ -32,6 +34,7 @@ namespace lab3
             mood,
             xp
         }
+
 
         private static locationType location = locationType.bedroom;
 
@@ -45,6 +48,8 @@ namespace lab3
         public static event EventHandler<TamagochEventArgs> OverFat;
         public static event EventHandler<TamagochEventArgs> OverHappy;
         public static event EventHandler<TamagochEventArgs> OverEnergetic;
+
+        public static IAsyncResult result;
 
         public static void Hill()
         {
@@ -80,6 +85,22 @@ namespace lab3
             ChangeString((int)State.mood, (int)location);
             ChangeXp();
             addAction("Work");
+        }
+
+        public static void goToPark()
+        {
+            location = locationType.park;
+            ChangeString((int)State.food, -1);
+            ChangeString((int)State.sleep, -1);
+            ChangeString((int)State.mood, (int)location);
+        }
+
+        public static void goToShopping()
+        {
+            location = locationType.shopping;
+            ChangeString((int)State.food, -1);
+            ChangeString((int)State.sleep, -1);
+            ChangeString((int)State.mood, (int)location);
         }
 
         public static void ChangeString(int index, int n)
@@ -134,6 +155,7 @@ namespace lab3
             {
                 Console.WriteLine(state[i, 0] + " " + state[i, 1]);
             }
+            Console.WriteLine("level " + Level);
         }
 
         public static void SendEvent(int i, int l)
@@ -146,62 +168,84 @@ namespace lab3
             OverFat += EventListener;
             OverHilled += EventListener;
             OverHappy += EventListener;
-            if (i == (int)State.helth && l <= 0)
+            if (i == (int)State.helth && l == 0)
             {
                 data.isBad = true;
+                gg = "hvatet";
+                state[(int)State.helth, 1] = "*****";
                 data.massage = "deth";
                 Dead?.Invoke(data, data);
+                Console.WriteLine(data.massage);
             }
-            if (i == (int)State.food && l <= 0)
+            if (i == (int)State.food && l == 0)
             {
+                ChangeString((int)State.helth, -1);
+                state[(int)State.food, 1] = "#";
                 data.isBad = true;
                 data.massage = "hunger";
                 Hungry?.Invoke(data, data);
+                Console.WriteLine(data.massage);
             }
-            if (i == (int)State.sleep && l <= 0)
+            if (i == (int)State.sleep && l == 0)
             {
                 data.isBad = true;
+                state[(int)State.sleep, 1] = "#";
                 data.massage = "tiered";
                 Exhausted?.Invoke(data, data);
+                ChangeString((int)State.helth, -1);
+                Console.WriteLine(data.massage);
             }
-            if (i == (int)State.mood && l <= 0)
+            if (i == (int)State.mood && l == 0)
             {
                 data.isBad = true;
+                state[(int)State.mood, 1] = "#";
                 data.massage = "sad";
                 Depression?.Invoke(data, data);
+                ChangeString((int)State.helth, -1);
+                Console.WriteLine(data.massage);
             }
             if (i == (int)State.helth && l > 9)
             {
                 data.isBad = false;
                 data.massage = "hilled to kill";
+                gg = "hvatet";
+                state[(int)State.helth, 1] = "*****";
                 OverHilled?.Invoke(data, data);
+                Console.WriteLine(data.massage);
             }
             if (i == (int)State.food && l > 9)
             {
                 data.isBad = true;
                 data.massage = "too fat to go";
                 OverFat?.Invoke(data, data);
+                ChangeString((int)State.helth, -1);
+                Console.WriteLine(data.massage);
             }
             if (i == (int)State.sleep && l > 9)
             {
                 data.isBad = false;
                 data.massage = "run so fast";
                 OverEnergetic?.Invoke(data, data);
+                Console.WriteLine(data.massage);
             }
             if (i == (int)State.mood && l > 9)
             {
                 data.isBad = false;
                 data.massage = "suicied from happiness";
                 OverHappy?.Invoke(data, data);
+                Console.WriteLine(data.massage);
             }
         }
         public static void EventListener(object sender, TamagochEventArgs e)
         {
-            Console.WriteLine(e.massage);
-            if (e.isBad)
-            {
-                ChangeString((int)State.helth, -1);
-            }
+            Dead = null;
+            Hungry = null;
+            Depression = null;
+            Exhausted = null;
+            OverEnergetic = null;
+            OverFat = null;
+            OverHilled = null;
+            OverHappy = null;
         }
         
 

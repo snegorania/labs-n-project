@@ -6,18 +6,64 @@ namespace lab3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("exit - Killing your tamagotchi \nStatus - Tamagotchi parameters\n Hill - Visiting hospital \nFeed - Feeding tamagotchi \nSleep - Going to bed \nWork - Working \nParking - Going to Park \nShopping - Going to slaughterhouse");
+            Tamagoch.ShowStatus();
+            Console.WriteLine("Enter command: ");
             string input = Console.ReadLine();
             while (input != "exit")
             {
-                if (input == "help")
+                if (Tamagoch.gg != "hvatet")
                 {
-                    Console.WriteLine("exit - Killing your tamagotchi \nStatus - Tamagotchi parameters\n Hill - Visiting hospital \nFeed - Feeding tamagotchi \nSleep - Going to bed \nWork - Working");
+                    if (input == "help")
+                    {
+                        Console.WriteLine("exit - Killing your tamagotchi \nStatus - Tamagotchi " +
+                            " parameters \nHill - Visiting hospital " +
+                            " \nFeed - Feeding tamagotchi \nSleep - Going to bed" +
+                            " \nWork - Working \nParking - Going to Park \nShopping - Going to slaughterhouse");
+                    }
+
+                    if (input == "Status")
+                    {
+                        Tamagoch.ShowStatus();
+                    }
+
+                    if (input == "Work")
+                    {
+                        Tamagoch.Work();
+                    }
+
+                    if (input == "Hill")
+                    {
+                        Tamagoch.Hill();
+                    }
+
+                    if (input == "Feed")
+                    {
+                        Tamagoch.Feed();
+                    }
+
+                    if (input == "Sleep")
+                    {
+                        Tamagoch.Sleep();
+                    }
+
+                    if (input == "Parking")
+                    {
+                        Tamagoch.goToPark();
+                    }
+
+                    if (input == "Shopping")
+                    {
+                        Tamagoch.goToShopping();
+                    }
+                    input = Console.ReadLine();
                 }
-                if (input == "Status")
+                else
                 {
-                    Tamagoch.ShowStatus();
+                    input = "exit";
+                    continue;
                 }
-                input = Console.ReadLine();
+                
             }
         }
     }

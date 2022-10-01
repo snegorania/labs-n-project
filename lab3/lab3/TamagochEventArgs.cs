@@ -1,4 +1,6 @@
-﻿namespace lab3
+﻿using System;
+
+namespace lab3
 {
     class TamagochEventArgs : EventArgs
     {
