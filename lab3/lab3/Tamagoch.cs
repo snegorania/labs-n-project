@@ -4,7 +4,7 @@ namespace lab3
 {
     class Tamagoch
     {
-        private static string[,] state = { { "helth", "#####" }, { "food", "#####" }, { "sleep", "#####" }, { "mood", "#####" }, { "xp", "" } };
+        private static string[,] state = { { "helth", "#####" }, { " food", "#####" }, { "sleep", "#####" }, { " mood", "#####" }, { "   xp", "" } };
         private static string[] buf = new string[20];
         private static string[][] statistic = new string[7][];
         private static int xp = 0;
@@ -35,6 +35,17 @@ namespace lab3
             xp
         }
 
+        enum WeekDays
+        {
+            Monday,
+            Tuesday,
+            Wednesday,
+            Thursday,
+            Friday,
+            Saturday,
+            Sunday
+        }
+
 
         private static locationType location = locationType.bedroom;
 
@@ -57,6 +68,7 @@ namespace lab3
             ChangeString((int)State.helth, 3);
             ChangeString((int)State.mood, (int)location);
             addAction("Hill");
+            ShowStatus();
         }
 
         public static void Feed()
@@ -66,6 +78,7 @@ namespace lab3
             ChangeString((int)State.sleep, -1);
             ChangeString((int)State.mood, (int)location);
             addAction("Feed");
+            ShowStatus();
         }
 
         public static void Sleep()
@@ -75,6 +88,7 @@ namespace lab3
             ChangeString((int)State.sleep, 3);
             ChangeString((int)State.mood, (int)location);
             addAction("Sleep");
+            ShowStatus();
         }
 
         public static void Work()
@@ -85,6 +99,7 @@ namespace lab3
             ChangeString((int)State.mood, (int)location);
             ChangeXp();
             addAction("Work");
+            ShowStatus();
         }
 
         public static void goToPark()
@@ -93,6 +108,8 @@ namespace lab3
             ChangeString((int)State.food, -1);
             ChangeString((int)State.sleep, -1);
             ChangeString((int)State.mood, (int)location);
+            addAction("Parking");
+            ShowStatus();
         }
 
         public static void goToShopping()
@@ -101,6 +118,8 @@ namespace lab3
             ChangeString((int)State.food, -1);
             ChangeString((int)State.sleep, -1);
             ChangeString((int)State.mood, (int)location);
+            addAction("Shopping");
+            ShowStatus();
         }
 
         public static void ChangeString(int index, int n)
@@ -108,7 +127,6 @@ namespace lab3
             int length = state[index, 1].Length + n;
             if (length < 0) length = 0;
             if (length > 10) length = 10;
-            SendEvent(index, length);
             if (n >= 0)
             {
                 state[index, 1] = state[index, 1].PadRight(length, '#');
@@ -116,6 +134,7 @@ namespace lab3
             {
                 state[index, 1] = state[index, 1].Substring(0, length);
             }
+            SendEvent(index, length);
         }
 
         public static void ChangeXp()
@@ -149,6 +168,49 @@ namespace lab3
             }
         }
 
+        public static void ShowActions()
+        {
+            WeekDays weekDays = WeekDays.Monday;
+            for (int i = 0; i < 7; i++)
+            {
+                switch (weekDays)
+                {
+                    case WeekDays.Monday:
+                        Console.Write("   Monday: ");
+                        weekDays = WeekDays.Tuesday;
+                        break;
+                    case WeekDays.Tuesday:
+                        Console.Write("  Tuesday: ");
+                        weekDays = WeekDays.Wednesday;
+                        break;
+                    case WeekDays.Wednesday:
+                        Console.Write("Wednesdey: ");
+                        weekDays = WeekDays.Thursday;
+                        break;
+                    case WeekDays.Thursday:
+                        Console.Write(" Thursday: ");
+                        weekDays = WeekDays.Friday;
+                        break;
+                    case WeekDays.Friday:
+                        Console.Write("   Friday: ");
+                        weekDays = WeekDays.Saturday;
+                        break;
+                    case WeekDays.Saturday:
+                        Console.Write(" Saturday: ");
+                        weekDays = WeekDays.Sunday;
+                        break;
+                    case WeekDays.Sunday:
+                        Console.Write("   Sunday: ");
+                        break;
+                }
+                for (int j = 0; j < statistic[i].Length; j++)
+                {
+                    Console.Write(statistic[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
         public static void ShowStatus()
         {
             for (int i = 0; i < 5; i++)
@@ -173,7 +235,7 @@ namespace lab3
                 data.isBad = true;
                 gg = "hvatet";
                 state[(int)State.helth, 1] = "*****";
-                data.massage = "deth";
+                data.massage = "Died. Game over...";
                 Dead?.Invoke(data, data);
                 Console.WriteLine(data.massage);
             }
@@ -182,7 +244,7 @@ namespace lab3
                 ChangeString((int)State.helth, -1);
                 state[(int)State.food, 1] = "#";
                 data.isBad = true;
-                data.massage = "hunger";
+                data.massage = "Hungry. I'm loosing Helth";
                 Hungry?.Invoke(data, data);
                 Console.WriteLine(data.massage);
             }
@@ -190,7 +252,7 @@ namespace lab3
             {
                 data.isBad = true;
                 state[(int)State.sleep, 1] = "#";
-                data.massage = "tiered";
+                data.massage = "Tired. I'm loosing Helth";
                 Exhausted?.Invoke(data, data);
                 ChangeString((int)State.helth, -1);
                 Console.WriteLine(data.massage);
@@ -199,7 +261,7 @@ namespace lab3
             {
                 data.isBad = true;
                 state[(int)State.mood, 1] = "#";
-                data.massage = "sad";
+                data.massage = "Sad. I'm loosing Helth";
                 Depression?.Invoke(data, data);
                 ChangeString((int)State.helth, -1);
                 Console.WriteLine(data.massage);
@@ -207,7 +269,7 @@ namespace lab3
             if (i == (int)State.helth && l > 9)
             {
                 data.isBad = false;
-                data.massage = "hilled to kill";
+                data.massage = "Immortality. I won't obey you anymore";
                 gg = "hvatet";
                 state[(int)State.helth, 1] = "*****";
                 OverHilled?.Invoke(data, data);
@@ -216,7 +278,9 @@ namespace lab3
             if (i == (int)State.food && l > 9)
             {
                 data.isBad = true;
-                data.massage = "too fat to go";
+                data.massage = "Fat. I can't get through the doorway";
+                gg = "hvatet";
+                state[(int)State.food, 1] = "*****";
                 OverFat?.Invoke(data, data);
                 ChangeString((int)State.helth, -1);
                 Console.WriteLine(data.massage);
@@ -224,14 +288,18 @@ namespace lab3
             if (i == (int)State.sleep && l > 9)
             {
                 data.isBad = false;
-                data.massage = "run so fast";
+                data.massage = "Overslept. What year is it now?";
+                gg = "hvatet";
+                state[(int)State.sleep, 1] = "*****";
                 OverEnergetic?.Invoke(data, data);
                 Console.WriteLine(data.massage);
             }
             if (i == (int)State.mood && l > 9)
             {
                 data.isBad = false;
-                data.massage = "suicied from happiness";
+                data.massage = "Boredom. My life doesn't change";
+                gg = "hvatet";
+                state[(int)State.sleep, 1] = "*****";
                 OverHappy?.Invoke(data, data);
                 Console.WriteLine(data.massage);
             }

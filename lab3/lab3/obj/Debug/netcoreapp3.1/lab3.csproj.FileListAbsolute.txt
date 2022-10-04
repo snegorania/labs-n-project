@@ -12,3 +12,17 @@ D:\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.pdb
 D:\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.genruntimeconfig.cache
 D:\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.csproj.AssemblyReference.cache
 D:\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.GeneratedMSBuildEditorConfig.editorconfig
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.exe
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.deps.json
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.runtimeconfig.json
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.runtimeconfig.dev.json
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.dll
+D:\ПОЭС\labs-n-project\lab3\lab3\bin\Debug\netcoreapp3.1\lab3.pdb
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.csproj.AssemblyReference.cache
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.GeneratedMSBuildEditorConfig.editorconfig
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.AssemblyInfoInputs.cache
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.AssemblyInfo.cs
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.csproj.CoreCompileInputs.cache
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.dll
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.pdb
+D:\ПОЭС\labs-n-project\lab3\lab3\obj\Debug\netcoreapp3.1\lab3.genruntimeconfig.cache

@@ -6,20 +6,22 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("exit - Killing your tamagotchi \nStatus - Tamagotchi parameters\n Hill - Visiting hospital \nFeed - Feeding tamagotchi \nSleep - Going to bed \nWork - Working \nParking - Going to Park \nShopping - Going to slaughterhouse");
+            Console.WriteLine("exit - Killing your tamagotchi \nStatus - Showing Tamagotchi parameters \nHill - Visiting hospital \nFeed - Feeding tamagotchi \nSleep - Going to bed \nWork - Working for the best company ever \nParking - Going to Park \nShopping - Going to slaughterhouse \nActions - Showing actions for last 7 days");
             Tamagoch.ShowStatus();
-            Console.WriteLine("Enter command: ");
-            string input = Console.ReadLine();
+            string input = "";
+            int count = 0;
             while (input != "exit")
             {
                 if (Tamagoch.gg != "hvatet")
                 {
+                    Console.Write("Enter command: ");
+                    input = Console.ReadLine();
                     if (input == "help")
                     {
-                        Console.WriteLine("exit - Killing your tamagotchi \nStatus - Tamagotchi " +
+                        Console.WriteLine("exit - Killing your tamagotchi \nStatus - Showing Tamagotchi " +
                             " parameters \nHill - Visiting hospital " +
                             " \nFeed - Feeding tamagotchi \nSleep - Going to bed" +
-                            " \nWork - Working \nParking - Going to Park \nShopping - Going to slaughterhouse");
+                            " \nWork - Working for the best company ever \nParking - Going to Park \nShopping - Going to slaughterhouse \nActions - Showing actions for last 7 days");
                     }
 
                     if (input == "Status")
@@ -45,6 +47,7 @@ namespace lab3
                     if (input == "Sleep")
                     {
                         Tamagoch.Sleep();
+                        count++;
                     }
 
                     if (input == "Parking")
@@ -56,10 +59,22 @@ namespace lab3
                     {
                         Tamagoch.goToShopping();
                     }
-                    input = Console.ReadLine();
+
+                    if (input == "Actions")
+                    {
+                        if (count > 6)
+                        {
+                            Tamagoch.ShowActions();
+                        } else
+                        {
+                            Console.WriteLine("Report is not ready...");
+                        }
+                    }
                 }
                 else
                 {
+                    Console.Write("Your last words: ");
+                    input = Console.ReadLine();
                     input = "exit";
                     continue;
                 }
