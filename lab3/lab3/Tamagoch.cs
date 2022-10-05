@@ -201,6 +201,7 @@ namespace lab3
                         break;
                     case WeekDays.Sunday:
                         Console.Write("   Sunday: ");
+                        weekDays = WeekDays.Monday;
                         break;
                 }
                 for (int j = 0; j < statistic[i].Length; j++)
