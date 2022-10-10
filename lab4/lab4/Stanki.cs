@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace lab4
+﻿namespace lab4
 {
     class Stanki
     {
-        public string Name { get; }
-        public int Productivity { get; }
-        public int Size { get; }
-        public int LifeTime { get; }
-        public Stanki(string name, int productivity, int size, int lifeTime)
+        public string Name { get; set;  }
+        public bool Usage { get; set; }
+        public long LifeTime { get; set; }
+        public Stanki(string name, bool usage, long lifeTime)
         {
             Name = name;
-            Productivity = productivity;
-            Size = size;
+            Usage = usage;
             LifeTime = lifeTime;
-            Console.WriteLine("You have bought " + name);
         }
 
         ~Stanki()
         {
             Console.WriteLine("You have thrown out " + this.Name);
+        }
+
+        public static Stanki operator +(Stanki s1, Stanki s2)
+        {
+            return new Stanki(s1.Name + " " + s2.Name, true, s1.LifeTime < s2.LifeTime ? s1.LifeTime : s2.LifeTime);
         }
     }
 }
