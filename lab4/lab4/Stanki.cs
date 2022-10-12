@@ -15,6 +15,7 @@
         ~Stanki()
         {
             Console.WriteLine("You have thrown out " + this.Name);
+            Console.ReadLine();
         }
 
         public static Stanki operator +(Stanki s1, Stanki s2)
