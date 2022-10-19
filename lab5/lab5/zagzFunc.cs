@@ -12,12 +12,7 @@ namespace lab5
 
         public static void HelpUser()
         {
-            Console.WriteLine("explode - exit \nadd person - Creating of new item \nall peple - Giving list output \nrename person " +
-                "- Changing name on index \ndelete person - Removing from the listn \nstatistic - Giving number of common" +
-                " people \nhelp - Command list"+
-                "add item - Adding new item \nchange item - Editing item " +
-                "\ndelete item - Removing item \nall items - Showing all items \ninformation - Showing information of item" +
-                " \nconnect - Completing line");
+            Console.WriteLine("kill - exit \nAdd - Creating of new item \nAll - Giving list output \nRename - Changing name on index \nDelete - Removing from the listn \nStatistic - Giving number of common items \nHelp - Command list");
         }
 
         public static void CheckName(string name)

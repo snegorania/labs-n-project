@@ -10,17 +10,17 @@ namespace lab5
     {
         public static void ChangeItem(int i, string name)
         {
-            Program.stankis[i].Name = name;
+            FactoryMode.stankis[i].Name = name;
         }
 
         public static void ChangeItem(int i, bool usage)
         {
-            Program.stankis[i].Usage = usage;
+            FactoryMode.stankis[i].Usage = usage;
         }
 
         public static void ChangeItem(int i, long lt)
         {
-            Program.stankis[i].LifeTime = lt;
+            FactoryMode.stankis[i].LifeTime = lt;
         }
     }
 }

@@ -11,11 +11,13 @@ namespace lab5
         public string Name { get; set; }
         public bool Usage { get; set; }
         public long LifeTime { get; set; }
+        public string WorkerName { get; set; }
         public Stanki(string name, bool usage, long lifeTime)
         {
             Name = name;
             Usage = usage;
             LifeTime = lifeTime;
+            WorkerName = "empty";
         }
 
         ~Stanki()
