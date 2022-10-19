@@ -15,7 +15,7 @@ namespace lab5
             int k = 0;
 
             Console.WriteLine("people - showing people list \nstanki - showing stanki list \ninfo - showing stanok info " +
-                "\nhire - adding prtson to stanok \nexit - closing mode \nhelp - command list");
+                "\nhire - adding person to stanok \nexit - closing mode \npeopledoc - Documantation of people \nstankidoc - Documentation of stanki \nworkerdoc - Documentation of workers workers - List of Workers\n \nhelp - command list");
 
             while(input != "exit")
             {
@@ -24,15 +24,12 @@ namespace lab5
 
                 if (input == "people")
                 {
-                    zagzFunc.ListOfNames();
+                    fileWork.ReadPeople();
                 }
 
                 if (input == "stanki")
                 {
-                    for (int j = 0; j < FactoryMode.stankis.Count; j++)
-                    {
-                        Console.WriteLine(j + " " + FactoryMode.stankis[j].Name);
-                    }
+                    fileWork.ReadStanki();
                 }
 
                 if (input == "info")
@@ -77,6 +74,26 @@ namespace lab5
                     FactoryMode.stankis[k].WorkerName = zagzFunc.names[i];
 
                     Console.WriteLine(FactoryMode.stankis[k].Name + " " + FactoryMode.stankis[k].Usage + " " + FactoryMode.stankis[k].LifeTime + " " + FactoryMode.stankis[k].WorkerName);
+                }
+
+                if (input == "peopledoc")
+                {
+                    fileWork.WritePeople();
+                }
+
+                if (input == "stankidoc")
+                {
+                    fileWork.WriteStanki();
+                }
+
+                if (input == "workerdoc")
+                {
+                    fileWork.WriteHRW();
+                }
+
+                if (input == "workers")
+                {
+                    fileWork.ReadHRW();
                 }
 
                 if (input == "help")

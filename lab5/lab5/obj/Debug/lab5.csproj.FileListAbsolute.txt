@@ -6,3 +6,11 @@ D:\labs-n-project\lab5\lab5\obj\Debug\lab5.csproj.SuggestedBindingRedirects.cach
 D:\labs-n-project\lab5\lab5\obj\Debug\lab5.csproj.CoreCompileInputs.cache
 D:\labs-n-project\lab5\lab5\obj\Debug\lab5.exe
 D:\labs-n-project\lab5\lab5\obj\Debug\lab5.pdb
+D:\ПОЭС\labs-n-project\lab5\lab5\bin\Debug\lab5.exe.config
+D:\ПОЭС\labs-n-project\lab5\lab5\bin\Debug\lab5.exe
+D:\ПОЭС\labs-n-project\lab5\lab5\bin\Debug\lab5.pdb
+D:\ПОЭС\labs-n-project\lab5\lab5\obj\Debug\lab5.csproj.AssemblyReference.cache
+D:\ПОЭС\labs-n-project\lab5\lab5\obj\Debug\lab5.csproj.SuggestedBindingRedirects.cache
+D:\ПОЭС\labs-n-project\lab5\lab5\obj\Debug\lab5.csproj.CoreCompileInputs.cache
+D:\ПОЭС\labs-n-project\lab5\lab5\obj\Debug\lab5.exe
+D:\ПОЭС\labs-n-project\lab5\lab5\obj\Debug\lab5.pdb
