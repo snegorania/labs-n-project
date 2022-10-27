@@ -16,9 +16,16 @@ namespace lab6
         {
             InitializeComponent();
             PetShelter.addColums();
+            DataSet ds = new DataSet();
+            
             dataGridView1.DataSource = PetShelter.pets;
             dataGridView1.Update();
+            
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
