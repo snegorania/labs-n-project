@@ -9,7 +9,7 @@ namespace lab6
 {
     internal class People
     {
-        public static DataTable people = new DataTable();
+        public static DataTable people = Form1.ds.Tables.Add("People");
         public static DataColumn workerID = new DataColumn();
         public static DataColumn workerName = new DataColumn();
         public static DataColumn workerAge = new DataColumn();

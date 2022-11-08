@@ -11,11 +11,12 @@ namespace lab6
 {
     internal class PetShelter
     {
-        public static DataTable pets = new DataTable("Pets");
+        public static DataTable pets = Form1.ds.Tables.Add("Pets");
         public static DataColumn petId = new DataColumn();
         public static DataColumn petName = new DataColumn();
         public static DataColumn petType = new DataColumn();
         public static DataColumn petStatus = new DataColumn();
+        public static DataColumn petVolunteer = new DataColumn();
 
         public static void addColums()
         {
@@ -43,10 +44,17 @@ namespace lab6
             petStatus.Caption = "Status";
             petType.AllowDBNull = false;
 
+            petVolunteer.DataType = Type.GetType("System.String");
+            petVolunteer.ColumnName = "Volunteer";
+            petVolunteer.Caption = "Volunteer";
+            petVolunteer.AllowDBNull = true;
+            petVolunteer.MaxLength = 20;
+
             pets.Columns.Add(petId);
             pets.Columns.Add(petName);
             pets.Columns.Add(petType);
             pets.Columns.Add(petStatus);
+            pets.Columns.Add(petVolunteer);
         }
     }
 }
