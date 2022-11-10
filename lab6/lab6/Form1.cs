@@ -22,11 +22,13 @@ namespace lab6
             dataGridView1.DataSource = ds.Tables["Pets"];
             dataGridView2.DataSource = ds.Tables["People"];
             comboBox1.Items.Add("All");
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             DataRow row = PetShelter.pets.NewRow();
+            row["ID"] = PetShelter.pets == null ? 0 : PetShelter.pets.Rows.Count;
             row["Name"] = PetName.Text;
             if (comboBox1.SelectedIndex > 0)
             {
@@ -49,6 +51,7 @@ namespace lab6
         private void button4_Click(object sender, EventArgs e)
         {
             DataRow row = People.people.NewRow();
+            row["ID"] = People.people == null ? 0 : People.people.Rows.Count;
             row["Name"] = PersonName.Text;
             row["Age"] = PersonAge.Text;
             row["Specialization"] = PersonSpecialisation.Text;
@@ -67,6 +70,12 @@ namespace lab6
 
         private void button5_Click(object sender, EventArgs e)
         {
+            DataRow row;
+            for (int i = Int32.Parse(textBox1.Text) + 1; i < People.people.Rows.Count; i++)
+            {
+                row = People.people.Rows[i];
+                row["ID"] = (int)row["ID"] - 1;
+            }
             People.people.Rows.RemoveAt(Int32.Parse(textBox1.Text));
             comboBox1.Items.RemoveAt(Int32.Parse(textBox1.Text) + 1);
         }
@@ -114,35 +123,69 @@ namespace lab6
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DataRow row = null;
-            foreach (DataRow thing in PetShelter.pets.Rows)
+            DataRow row;
+            for (int i = Int32.Parse(textBox2.Text) + 1; i < PetShelter.pets.Rows.Count; i++)
             {
-                if ((int)thing["ID"] == Int32.Parse(textBox2.Text))
+                row = PetShelter.pets.Rows[i];
+                row["ID"] = (int)row["ID"] - 1;
+            }
+            foreach (DataRow item in People.people.Rows)
+            {
+                if (PetShelter.pets.Rows[Int32.Parse(textBox2.Text)]["Volunteer"].Equals("All"))
                 {
-                    row = thing;
-                    if (row["Volunteer"].Equals("All"))
+                    foreach(DataRow human in People.people.Rows)
                     {
-                        foreach (DataRow item in People.people.Rows)
-                        {
-                            if ((int)item["WorkLoad"] != 0)
-                            {
-                                item["WorkLoad"] = (int)item["WorkLoad"] - 1;
-                            }
-                        }
+                        human["WorkLoad"] = (int)human["Workload"] == 0 ? 0 : (int)human["Workload"] - 1;
                     }
-                    else
+                }
+                else
+                {
+                    if (item["Name"].Equals(PetShelter.pets.Rows[Int32.Parse(textBox2.Text)]["Volunteer"]))
                     {
-                        foreach (DataRow item in People.people.Rows)
-                        {
-                            if ((int)item["WorkLoad"] != 0 && item["Name"].Equals(row["Volunteer"]))
-                            {
-                                item["WorkLoad"] = (int)item["WorkLoad"] - 1;
-                            }
-                        }
+                        item["WorkLoad"] = (int)item["WorkLoad"] == 0 ? 0 : (int)item["WorkLoad"] - 1;
                     }
                 }
             }
-            PetShelter.pets.Rows.Remove(row);
+            PetShelter.pets.Rows.RemoveAt(Int32.Parse(textBox2.Text));
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            foreach (DataTable dt in ds.Tables)
+            {
+                Console.WriteLine(dt.TableName); // название таблицы
+                                                 // перебор всех столбцов
+                
+                // перебор всех строк таблицы
+                foreach (DataRow row in dt.Rows)
+                {
+                    // получаем все ячейки строки
+                    var cells = row.ItemArray;
+                    foreach (object cell in cells)
+                        Console.Write("\t{0}", cell);
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            foreach (DataTable dt in ds.Tables)
+            {
+                Console.WriteLine(dt.TableName); // название таблицы
+                                                 // перебор всех столбцов
+
+                // перебор всех строк таблицы
+                foreach (DataRow row in dt.Rows)
+                {
+                    // получаем все ячейки строки
+                    var cells = row.ItemArray;
+                    foreach (object cell in cells)
+                        Console.Write("\t{0}", cell);
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }
+    

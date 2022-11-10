@@ -23,9 +23,6 @@ namespace lab6
             petId.DataType = Type.GetType("System.Int32");
             petId.ColumnName = "ID";
             petId.Caption = "ID";
-            petId.AutoIncrement = true;
-            petId.Unique = true;
-            petId.ReadOnly = true;
 
             petName.DataType = Type.GetType("System.String");
             petName.ColumnName = "Name";

@@ -21,15 +21,13 @@ namespace lab6
             workerID.DataType = Type.GetType("System.Int32");
             workerID.ColumnName = "ID";
             workerID.Caption = "ID";
-            workerID.AutoIncrement = true;
-            workerID.Unique = true;
-            workerID.ReadOnly = true;
 
             workerName.DataType = Type.GetType("System.String");
             workerName.ColumnName = "Name";
             workerName.Caption = "Name";
             workerName.AllowDBNull = true;
             workerName.MaxLength = 20;
+            workerName.Unique = true;
 
             workerAge.DataType = Type.GetType("System.Int32");
             workerAge.ColumnName = "Age";
