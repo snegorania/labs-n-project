@@ -1,6 +1,5 @@
-﻿DELIMITER //
-CREATE PROCEDURE temp_dev ()
+﻿CREATE PROCEDURE temp_dev ()
 begin
 SELECT Название_датчика, Значение_температуры, ABS(Значение_температуры - (SELECT AVG(Значение_температуры) FROM регистрация_показаний)) AS Отклонение
 FROM регистрация_показаний INNER JOIN датчики ON датчики.Номер_датчика = регистрация_показаний.Номер_датчика;
-end //
+end 
