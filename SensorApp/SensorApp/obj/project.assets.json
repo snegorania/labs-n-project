@@ -32,6 +32,30 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "FluentEmail.Core/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentEmail.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentEmail.Core.dll": {}
+        }
+      },
+      "FluentEmail.Smtp/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "FluentEmail.Core": "3.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentEmail.Smtp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentEmail.Smtp.dll": {}
+        }
+      },
       "Google.Protobuf/3.21.9": {
         "type": "package",
         "compile": {
@@ -957,6 +981,32 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "FluentEmail.Core/3.0.2": {
+      "sha512": "uQFFbJgMhhCFUti7pfMi429fMNi7fLGMj+7uDtD7POlQzLxlhXJ6tmt4Y1SI51sZsA36GO5b7+o29eY/dKiICQ==",
+      "type": "package",
+      "path": "fluentemail.core/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentemail.core.3.0.2.nupkg.sha512",
+        "fluentemail.core.nuspec",
+        "fluentemail_logo_64x64.png",
+        "lib/netstandard2.0/FluentEmail.Core.dll"
+      ]
+    },
+    "FluentEmail.Smtp/3.0.2": {
+      "sha512": "Y5pZKS/mXSl7D5WJWecvfo1kpIMDc6U0VRU6wRbE9wEv2IqMH3cQXa/97Pwi+m31COepIqc6dMhGMtAJ2Qh7rw==",
+      "type": "package",
+      "path": "fluentemail.smtp/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentemail.smtp.3.0.2.nupkg.sha512",
+        "fluentemail.smtp.nuspec",
+        "fluentemail_logo_64x64.png",
+        "lib/netstandard2.0/FluentEmail.Smtp.dll"
       ]
     },
     "Google.Protobuf/3.21.9": {
@@ -2833,6 +2883,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "FluentEmail.Smtp >= 3.0.2",
       "MySql.Data.EntityFramework >= 8.0.32",
       "Pomelo.EntityFrameworkCore.MySql >= 7.0.0"
     ]
@@ -2881,6 +2932,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "FluentEmail.Smtp": {
+            "target": "Package",
+            "version": "[3.0.2, )"
+          },
           "MySql.Data.EntityFramework": {
             "target": "Package",
             "version": "[8.0.32, )"

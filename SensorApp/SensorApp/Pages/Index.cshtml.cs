@@ -23,5 +23,10 @@ namespace SensorApp.Pages
         {
             DisplayReg = reg;
         }
+
+        public void OnPostPrint()
+        {
+            Mail.sendEmail();
+        }
     }
 }

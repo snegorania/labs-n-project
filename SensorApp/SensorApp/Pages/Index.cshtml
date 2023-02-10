@@ -6,5 +6,10 @@
 
 <div class="text-center">
     <h1 class="display-4">@Model.DisplayReg</h1>
+    <form asp-page-handler="Print" method="post">
+        <button onserverclick="buttonClick" runat="server" id="button1">Send email</button>
+    </form>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+    
