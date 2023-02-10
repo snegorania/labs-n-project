@@ -23,4 +23,24 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "User",
+        pattern: "{controller=User}/{action=Index}/{id?}"
+        );
+    endpoints.MapControllerRoute(
+       name: "Region",
+       pattern: "{controller=Region}/{action=Index}/{id?}"
+       );
+    endpoints.MapControllerRoute(
+       name: "Sensor",
+       pattern: "{controller=Rensor}/{action=Index}/{id?}"
+       );
+    endpoints.MapControllerRoute(
+       name: "Indication",
+       pattern: "{controller=Indication}/{action=Index}/{id?}"
+       );
+});
+
 app.Run();
