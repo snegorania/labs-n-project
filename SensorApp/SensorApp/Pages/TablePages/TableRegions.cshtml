@@ -1,0 +1,23 @@
+﻿@page
+@model SensorApp.Pages.TablePages.TableRegionsModel
+@{
+	ViewData["Title"] = "Regions";
+}
+
+<div class="text-center">
+	<h2>Regions</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        @foreach (var region in Model.Regions)
+        {
+            <tr>
+                <td>@region.Id</td>
+                <td>@region.Name</td>
+            </tr>
+        }
+    </table>
+</div>
+

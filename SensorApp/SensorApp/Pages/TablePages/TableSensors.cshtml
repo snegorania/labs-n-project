@@ -1,0 +1,34 @@
+﻿@page
+@model SensorApp.Pages.TablePages.TableSensorsModel
+@{
+	ViewData["Title"] = "Sensors";
+}
+
+<div class="text-center">
+	<h2>Sensors</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Region</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+        @foreach (var sensor in Model.Sensors)
+        {
+            <tr>
+                <td>@sensor.Id</td>
+                <td>@sensor.Name</td>
+                @foreach(var region in Model.Regions)
+                {
+                    if(sensor.Id_Region == region.Id)
+                    {
+                        <td>@region.Name</td>
+                    }
+                }
+                <td>@sensor.Latitude</td>
+                <td>@sensor.Longitude</td>
+            </tr>
+        }
+    </table>
+</div>

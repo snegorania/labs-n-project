@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Data.Common;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 
 
 namespace SensorApp
 {
     public class quaryTry
     {
-        public static string ConnectionTry()
+        /*public static string ConnectionTry()
         {
             string result;
             MySqlConnection conn = DBUtils.GetDBConnection();
@@ -44,7 +44,7 @@ namespace SensorApp
                 regionName = reader.GetString(regionIndex);
             }
             return regionName;
-        }
+        }*/
 
     }
 }

@@ -32,6 +32,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/labs-n-project/SensorApp/SensorApp/Pages/TablePages/TableIndications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVQYWdlc1xUYWJsZUluZGljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/labs-n-project/SensorApp/SensorApp/Pages/TablePages/TableRegions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVQYWdlc1xUYWJsZVJlZ2lvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/labs-n-project/SensorApp/SensorApp/Pages/TablePages/TableSensors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVQYWdlc1xUYWJsZVNlbnNvcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/labs-n-project/SensorApp/SensorApp/Pages/UserOperationPages/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlck9wZXJhdGlvblBhZ2VzXExvZ0luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/labs-n-project/SensorApp/SensorApp/Pages/UserOperationPages/SingUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlck9wZXJhdGlvblBhZ2VzXFNpbmdVcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/labs-n-project/SensorApp/SensorApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

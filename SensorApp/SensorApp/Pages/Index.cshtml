@@ -5,11 +5,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">@Model.DisplayReg</h1>
+    <h2>Users</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>Password</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Login</td>
+                <td>@user.Password</td>
+                <td>@user.Mail</td>
+            </tr>
+        }
+    </table>
+    
+    
     <form asp-page-handler="Print" method="post">
         <button onserverclick="buttonClick" runat="server" id="button1">Send email</button>
     </form>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
     

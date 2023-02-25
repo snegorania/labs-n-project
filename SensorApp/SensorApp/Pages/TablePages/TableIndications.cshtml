@@ -1,0 +1,39 @@
+﻿@page
+@model SensorApp.Pages.TablePages.TableIndicationsModel
+@{
+	ViewData["Title"] = "Indications";
+}
+
+<script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+
+<script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
+<div class="text-center">
+    <h2>Indications</h2>
+    <div>@Html.Raw(Model.ChartJson)</div>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Sensor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Temperature</th>
+        </tr>
+        @foreach (var indication in Model.Indications)
+        {
+            <tr>
+                <td>@indication.Id</td>
+                @foreach(var sensor in Model.Sensors)
+                {
+                    if(indication.Id_Sensor == sensor.Id)
+                    {
+                        <td>@sensor.Name</td>
+                    }
+                }
+                <td>@indication.Date_Indication.ToString("d")</td>
+                <td>@indication.Time_Indication</td>
+                <td>@indication.Temperature</td>
+            </tr>
+        }
+    </table>
+</div>

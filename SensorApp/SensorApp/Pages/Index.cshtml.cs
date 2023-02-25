@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SensorApp.Models;
 
 namespace SensorApp.Pages
 {
@@ -12,16 +13,23 @@ namespace SensorApp.Pages
             _logger = logger;
         }*/
 
-        string reg;
-        public string DisplayReg { get; set; }
-        public IndexModel()
+        /*string reg;
+        public string DisplayReg { get; set; }*/
+        private DatabaseContext db;
+        public IndexModel(DatabaseContext _db)
         {
-            this.reg = quaryTry.ConnectionTry();
+            db = _db;
         }
+
+        public List<User> Users { get; set; }
+       
 
         public void OnGet()
         {
-            DisplayReg = reg;
+            //DisplayReg = reg;
+            Users = db.Users.ToList();
+            
+
         }
 
         public void OnPostPrint()

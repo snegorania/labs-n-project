@@ -1,8 +1,19 @@
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using SensorApp.Models;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 var app = builder.Build();
 
@@ -22,25 +33,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "User",
-        pattern: "{controller=User}/{action=Index}/{id?}"
-        );
-    endpoints.MapControllerRoute(
-       name: "Region",
-       pattern: "{controller=Region}/{action=Index}/{id?}"
-       );
-    endpoints.MapControllerRoute(
-       name: "Sensor",
-       pattern: "{controller=Rensor}/{action=Index}/{id?}"
-       );
-    endpoints.MapControllerRoute(
-       name: "Indication",
-       pattern: "{controller=Indication}/{action=Index}/{id?}"
-       );
-});
 
 app.Run();
