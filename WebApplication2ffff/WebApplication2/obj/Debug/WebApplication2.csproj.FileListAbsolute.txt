@@ -3,3 +3,10 @@ G:\WebApplication2\WebApplication2\bin\WebApplication2.pdb
 G:\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
 G:\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
 G:\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\labs-n-project\WebApplication2ffff\WebApplication2\bin\WebApplication2.dll.config
+D:\labs-n-project\WebApplication2ffff\WebApplication2\bin\WebApplication2.dll
+D:\labs-n-project\WebApplication2ffff\WebApplication2\bin\WebApplication2.pdb
+D:\labs-n-project\WebApplication2ffff\WebApplication2\obj\Debug\WebApplication2.csproj.AssemblyReference.cache
+D:\labs-n-project\WebApplication2ffff\WebApplication2\obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache
+D:\labs-n-project\WebApplication2ffff\WebApplication2\obj\Debug\WebApplication2.dll
+D:\labs-n-project\WebApplication2ffff\WebApplication2\obj\Debug\WebApplication2.pdb

@@ -2,3 +2,10 @@ G:\WebApplication2\WebService1\bin\WebService1.dll
 G:\WebApplication2\WebService1\bin\WebService1.pdb
 G:\WebApplication2\WebService1\obj\Debug\WebService1.dll
 G:\WebApplication2\WebService1\obj\Debug\WebService1.pdb
+D:\labs-n-project\WebApplication2ffff\WebService1\bin\WebService1.dll.config
+D:\labs-n-project\WebApplication2ffff\WebService1\bin\WebService1.dll
+D:\labs-n-project\WebApplication2ffff\WebService1\bin\WebService1.pdb
+D:\labs-n-project\WebApplication2ffff\WebService1\obj\Debug\WebService1.csproj.AssemblyReference.cache
+D:\labs-n-project\WebApplication2ffff\WebService1\obj\Debug\WebService1.csproj.CoreCompileInputs.cache
+D:\labs-n-project\WebApplication2ffff\WebService1\obj\Debug\WebService1.dll
+D:\labs-n-project\WebApplication2ffff\WebService1\obj\Debug\WebService1.pdb

@@ -22,9 +22,9 @@ namespace WebApplication2.Account
         {
             using (var client = new WebClient())
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=1-123-09;Initial Catalog=jkrdghsggh;Integrated Security=True"))
+                using (SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBaseSensors.mdf;Integrated Security=True"))
                 {
-                    using (StreamWriter sw = new StreamWriter(@"G:\region.txt"))
+                    using (StreamWriter sw = new StreamWriter(@"D:/save-data/region.txt"))
                     {
                         SqlDataReader dr;
                         SqlCommand cmd = new SqlCommand();
